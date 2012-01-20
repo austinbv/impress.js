@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Arvo:400,700,400italic|Gudea|Medula+One);
+@import url(http://fonts.googleapis.com/css?family=Dorsa|Arvo:400,700,400italic|Gudea|Medula+One);
 /**
  * This is a stylesheet for a demo presentation for impress.js
  *
@@ -281,11 +281,11 @@ a:hover {
 }
 
 #technology svg {
+  position: absolute;
   height: 300px;
   -moz-transform: rotate(-30deg);
   -webkit-transform: rotate(-30deg);
-  right: 300px;
-  position: absolute;
+  right: 400px;
   top: 400px;
 }
 
@@ -293,8 +293,8 @@ a:hover {
   height: 30%;
   width: 50%;
   position: absolute;
-  left: 500px;
-  top: 200px;
+  left: 400px;
+  top: 150px;
   -moz-transform: rotate(30deg);
   -webkit-transform: rotate(30deg);
 }
@@ -308,9 +308,29 @@ a:hover {
 #technology #jquery {
   position: absolute;
   bottom: 200px;
-  left: 500px;
+  left: 400px;
   height: 15%;
   width: 50%;
+}
+
+#designing h1 {
+  font-family: 'Dorsa', sans-serif;
+  font-size: 500px;
+  text-transform: capitalize;
+  line-height: 350px;
+  letter-spacing: -10px;
+}
+
+#designing ul {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  text-align: right;
+  width: 200px;
+}
+
+#designing li {
+  line-height: -150px;
 }
 
 .center {

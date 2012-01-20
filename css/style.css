@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Dorsa|Arvo:400,700,400italic|Gudea|Medula+One);
+@import url(http://fonts.googleapis.com/css?family=Dorsa|Arvo:400,700,400italic|Gudea|Medula+One|Convergence|Handlee|Fredericka+the+Great|Lustia);
 /**
  * This is a stylesheet for a demo presentation for impress.js
  *
@@ -335,7 +335,7 @@ a:hover {
 #designing ul {
   position: absolute;
   right: 0px;
-  top: 0px;
+  top: 70px;
   text-align: right;
   width: 200px;
 }
@@ -345,7 +345,76 @@ a:hover {
 }
 
 #discuss h1 {
+  font-family: 'Convergence', sans-serif;
+  text-transform: uppercase;
   font-size: 100px;
+}
+
+#discuss #talk-bubble:after {
+  content: '';
+  position: absolute;
+  bottom: 25px;
+  right: 150px;
+  background: #ffffff;
+  border-width: 0 0 90px 80px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: white;
+  display: block;
+  width: 0px;
+  transform: skew(30deg,20deg);
+  -ms-transform: skew(30deg,20deg); /* IE 9 */
+  -webkit-transform: skew(30deg,20deg); /* Safari and Chrome */
+  -o-transform: skew(30deg,20deg); /* Opera */
+  -moz-transform: skew(30deg,20deg); /* Firefox */
+}
+
+#discuss #talk-bubble {
+  font-family: 'Handlee', cursive;
+  z-index: 100;
+  background: #ffffff;
+  padding: 20px 0px;
+  line-height: 40px;
+  border-radius: 190px;
+  width: 700px;
+}
+
+#discuss p {
+  margin-left: 100px;
+  z-index: 1000;
+}
+
+#story {
+  width: 1100px;
+}
+
+#story h1 span#large {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 800px;
+  padding-bottom: 10px;
+}
+
+#story h1 span#other {
+  font-family: 'Lustria', serif;
+  font-size: 200px;
+  vertical-align: 150%;
+}
+
+#story div {
+  background: #fff8d7;
+  height: 400px;
+  border-radius: 20px;
+  border: 2px solid black;
+  width: 370px;
+  overflow: none;
+  font-size: 40px;
+  position: absolute;
+  top: 550px;
+  left: 550px;
+}
+
+#story div p {
+  padding: 70px 30px;
 }
 
 #outer-discussion {

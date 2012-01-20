@@ -12,13 +12,13 @@
 (function ( document, window ) {
 
     // HELPER FUNCTIONS
-    
+
     var pfx = (function () {
 
         var style = document.createElement('dummy').style,
             prefixes = 'Webkit Moz O ms Khtml'.split(' '),
             memory = {};
-            
+
         return function ( prop ) {
             if ( typeof memory[ prop ] === "undefined" ) {
 
@@ -43,7 +43,7 @@
     var arrayify = function ( a ) {
         return [].slice.call( a );
     };
-    
+
     var css = function ( el, props ) {
         var key, pkey;
         for ( key in props ) {
@@ -56,69 +56,69 @@
         }
         return el;
     }
-    
+
     var byId = function ( id ) {
         return document.getElementById(id);
     }
-    
+
     var $ = function ( selector, context ) {
         context = context || document;
         return context.querySelector(selector);
     };
-    
+
     var $$ = function ( selector, context ) {
         context = context || document;
         return arrayify( context.querySelectorAll(selector) );
     };
-    
+
     var translate = function ( t ) {
         return " translate3d(" + t.x + "px," + t.y + "px," + t.z + "px) ";
     };
-    
+
     var rotate = function ( r, revert ) {
         var rX = " rotateX(" + r.x + "deg) ",
             rY = " rotateY(" + r.y + "deg) ",
             rZ = " rotateZ(" + r.z + "deg) ";
-        
+
         return revert ? rZ+rY+rX : rX+rY+rZ;
     };
-    
+
     var scale = function ( s ) {
         return " scale(" + s + ") ";
     }
-    
+
     // CHECK SUPPORT
-    
+
     var ua = navigator.userAgent.toLowerCase();
     var impressSupported = ( pfx("perspective") != null ) &&
                            ( ua.search(/(iphone)|(ipod)|(ipad)|(android)/) == -1 );
-    
+
     // DOM ELEMENTS
-    
+
     var impress = byId("impress");
-    
+
     if (!impressSupported) {
         impress.className = "impress-not-supported";
         return;
     } else {
         impress.className = "";
     }
-    
+
     var canvas = document.createElement("div");
     canvas.className = "canvas";
-    
+
     arrayify( impress.childNodes ).forEach(function ( el ) {
         canvas.appendChild( el );
     });
     impress.appendChild(canvas);
-    
+
     var steps = $$(".step", impress);
-    
+
     // SETUP
     // set initial values and defaults
-    
+
     document.documentElement.style.height = "100%";
-    
+
     css(document.body, {
         height: "100%",
         overflow: "hidden"
@@ -130,7 +130,7 @@
         transition: "all 1s ease-in-out",
         transformStyle: "preserve-3d"
     }
-    
+
     css(impress, props);
     css(impress, {
         top: "50%",
@@ -138,7 +138,7 @@
         perspective: "1000px"
     });
     css(canvas, props);
-    
+
     var current = {
         translate: { x: 0, y: 0, z: 0 },
         rotate:    { x: 0, y: 0, z: 0 },
@@ -160,13 +160,13 @@
                 },
                 scale: data.scale || 1
             };
-        
+
         el.stepData = step;
-        
+
         if ( !el.id ) {
             el.id = "step-" + (idx + 1);
         }
-        
+
         css(el, {
             position: "absolute",
             transform: "translate(-50%,-50%)" +
@@ -175,28 +175,28 @@
                        scale(step.scale),
             transformStyle: "preserve-3d"
         });
-        
+
     });
 
     // making given step active
 
     var active = null;
     var hashTimeout = null;
-    
+
     var select = function ( el ) {
         if ( !el || !el.stepData || el == active) {
             // selected element is not defined as step or is already active
             return false;
         } else if ( el.classList.contains("skip") ) {
-          
+
           var skipedIndex = steps.indexOf( active ) > steps.indexOf( el ) ? -1 : 1;
           var skipped = steps.indexOf( el ) + skipedIndex;
           skipped = skipped < steps.length ? steps[ skipped ] : steps[ 0 ];
-          
+
           select(skipped);
           return false;
         }
-        
+
         // Sometimes it's possible to trigger focus on first link with some keyboard action.
         // Browser in such a case tries to scroll the page to make this element visible
         // (even that body overflow is set to hidden) and it breaks our careful positioning.
@@ -206,16 +206,16 @@
         //
         // If you are reading this and know any better way to handle it, I'll be glad to hear about it!
         window.scrollTo(0, 0);
-        
+
         var step = el.stepData;
-        
+
         if ( active ) {
             active.classList.remove("active");
         }
         el.classList.add("active");
-        
+
         impress.className = "step-" + el.id;
-        
+
         // `#/step-id` is used instead of `#step-id` to prevent default browser
         // scrolling to element in hash
         //
@@ -225,7 +225,7 @@
         hashTimeout = window.setTimeout(function () {
             window.location.hash = "#/" + el.id;
         }, 1000);
-        
+
         var target = {
             rotate: {
                 x: -parseInt(step.rotate.x, 10),
@@ -239,9 +239,9 @@
             },
             scale: 1 / parseFloat(step.scale)
         };
-        
+
         var zoomin = target.scale >= current.scale;
-        
+
         css(impress, {
             // to keep the perspective look similar for different scales
             // we need to 'scale' the perspective, too
@@ -249,34 +249,34 @@
             transform: scale(target.scale),
             transitionDelay: (zoomin ? "500ms" : "0ms")
         });
-        
+
         css(canvas, {
             transform: rotate(target.rotate, true) + translate(target.translate),
             transitionDelay: (zoomin ? "0ms" : "500ms")
         });
-        
+
         current = target;
         active = el;
-        
+
         return el;
     };
-    
+
     var selectPrev = function () {
         var prev = steps.indexOf( active ) - 1;
         prev = prev >= 0 ? steps[ prev ] : steps[ steps.length-1 ];
 
         return select(prev);
     };
-    
+
     var selectNext = function () {
         var next = steps.indexOf( active ) + 1;
         next = next < steps.length ? steps[ next ] : steps[ 0 ];
 
         return select(next);
     };
-    
+
     // EVENTS
-    
+
     document.addEventListener("keydown", function ( event ) {
         if ( event.keyCode == 9 || ( event.keyCode >= 32 && event.keyCode <= 34 ) || (event.keyCode >= 37 && event.keyCode <= 40) ) {
             switch( event.keyCode ) {
@@ -293,7 +293,7 @@
                          selectNext();
                          break;
             }
-            
+
             event.preventDefault();
         }
     }, false);
@@ -307,32 +307,32 @@
                 (target != document.body) ) {
             target = target.parentNode;
         }
-        
+
         if ( target.tagName == "A" ) {
             var href = target.getAttribute("href");
-            
+
             // if it's a link to presentation step, target this step
             if ( href && href[0] == '#' ) {
                 target = byId( href.slice(1) );
             }
         }
-        
+
         if ( select(target) ) {
             event.preventDefault();
         }
     }, false);
-    
+
     var getElementFromUrl = function () {
         // get id from url # by removing `#` or `#/` from the beginning,
         // so both "fallback" `#slide-id` and "enhanced" `#/slide-id` will work
         return byId( window.location.hash.replace(/^#\/?/,"") );
     }
-    
+
     window.addEventListener("hashchange", function () {
         select( getElementFromUrl() );
     }, false);
-    
-    // START 
+
+    // START
     // by selecting step defined in url or first step of the presentation
     select(getElementFromUrl() || steps[0]);
 

@@ -6,12 +6,10 @@
     <title>Narwhal: A Case Study Developing a Web Application for the Classroom
     Utilizing Behavior Driven Development</title>
 
-    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.">
-    <meta name="author" content="Bartek Szopka" />
+    <meta name="description" content="Using impress.js to give a presentation on Behavior Driven Development">
+    <meta name="author" content="Austin Vance" />
 
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-
-    <link href="css/impress-demo.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -78,7 +76,7 @@
 
     <!-- Inside the circle -->
 
-    <div id="bdd" class="step" data-x="0" data-y="0" data-scale="3">
+    <div id="bdd" class="step fill" data-x="0" data-y="0" data-scale="3">
       <h1>BDD</h1>
       <h2>Behavior Driven Development</h2>
       <ul>
@@ -89,7 +87,7 @@
       </ul>
     </div>
 
-    <div id="narwhal" class="step" data-x="-499" data-y="-1596" data-z="-9200">
+    <div id="narwhal" class="step" data-x="-999" data-y="-2496" data-z="-9200" data-rotate="30">
       <h1>Narwhal</h1>
       <img id="logo" src="images/narwhal-logo.png">
       <ul>
@@ -102,26 +100,15 @@
       </ul>
     </div>
 
-    <div id="technology" class="step" data-x="500" data-y="-1596" data-z="-9200" data-rotate-x="90">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-        <title>HTML5 Logo</title>
-        <polygon fill="#E44D26" points="107.644,470.877 74.633,100.62 437.367,100.62 404.321,470.819 255.778,512    "/>
-        <polygon fill="#F16529" points="256,480.523 376.03,447.246 404.27,130.894 256,130.894    "/>
-        <polygon fill="#EBEBEB" points="256,268.217 195.91,268.217 191.76,221.716 256,221.716 256,176.305 255.843,176.305 142.132,176.305 143.219,188.488 154.38,313.627 256,313.627"/>
-        <polygon fill="#EBEBEB" points="256,386.153 255.801,386.206 205.227,372.55 201.994,336.333 177.419,336.333 156.409,336.333 162.771,407.634 255.791,433.457 256,433.399"/>
-        <path d="M108.382,0h23.077v22.8h21.11V0h23.078v69.044H152.57v-23.12h-21.11v23.12h-23.077V0z"/>
-        <path d="M205.994,22.896h-20.316V0h63.72v22.896h-20.325v46.148h-23.078V22.896z"/>
-        <path d="M259.511,0h24.063l14.802,24.26L313.163,0h24.072v69.044h-22.982V34.822l-15.877,24.549h-0.397l-15.888-24.549v34.222h-22.58V0z"/>
-        <path d="M348.72,0h23.084v46.222h32.453v22.822H348.72V0z"/>
-        <polygon fill="#FFFFFF" points="255.843,268.217 255.843,313.627 311.761,313.627 306.49,372.521 255.843,386.191 255.843,433.435 348.937,407.634 349.62,399.962 360.291,280.411 361.399,268.217 349.162,268.217"/>
-        <polygon fill="#FFFFFF" points="255.843,176.305 255.843,204.509 255.843,221.605 255.843,221.716 365.385,221.716 365.385,221.716 365.531,221.716 366.442,211.509 368.511,188.488 369.597,176.305"/>
-      </svg>
+    <div id="technology" class="step" data-x="0" data-y="-2496" data-z="-9200" data-rotate-x="90" data-rotate="30">
+      <img id="html5" src="http://www.w3.org/html/logo/downloads/HTML5_Logo.svg" alt="HTML5 Powered" title="HTML5 Powered">
+      <img id="rails" src="http://upload.wikimedia.org/wikipedia/commons/1/16/Ruby_on_Rails-logo.png">
       <img id="pusher" src="images/pusher.png">
       <img id="raphael" src="http://ajaxian.com/wp-content/images/raphael_logo.png">
       <img id="jquery" src="http://drupal.org/files/images/OQAAAI1PPrJY0nBALB7mkvju3mkQXqLmzMhxEjeb4gp8aujEUQcLfLyy-Sn4gZdkAas6-k8eYbQlGDE-GCjKfF5gIrUA15jOjFfLRv77VBd5t-WfZURdP9V3PdmT.preview.png">
     </div>
 
-    <div id="designing" class="step" data-x="1796" data-y="-1596" data-z="-9200" data-rotate-x="0">
+    <div id="designing" class="step" data-x="1296" data-y="-2496" data-z="-9200" data-rotate-x="0" data-rotate="30">
       <h1>BUILDING<br>NARWHAL</h1>
       <ul>
         <li>Pivotal Tracker</li>
@@ -135,36 +122,47 @@
     </div>
 
     <!-- Circle -->
-    <div class="step slide" data-x="971" data-y="2401" data-rotate="155">
-      Acceptance tests
+    <div id="discuss" class="step fill" data-x="971" data-y="2401" data-rotate="155">
+      <h1>Discussion</h1>
     </div>
 
-    <div class="step slide" data-x="2384" data-y="1010" data-rotate="110">
-      Acceptance tests
+    <div id="story" class="step fill" data-x="971" data-y="2401" data-rotate="155" data-rotate-x="90">
+      <h1>The story</h1>
+      <p>Short description of a feature</p>
+      <p>Actor Action Result</p>
     </div>
 
-    <div class="step slide" data-x="2401" data-y="-971" data-rotate="65">
-      Acceptance tests
+
+    <div id="outer-discussion" class="step fill skip" data-x="1456" data-y="3615" data-rotate="155">
+      <h1>CLient Discussion</h1>
     </div>
 
-    <div class="step slide" data-x="1010" data-y="-2384" data-rotate="20">
-      Acceptance tests
+    <div class="step slide fill" data-x="2384" data-y="1010" data-rotate="110">
+      <h1>Acceptance tests</h1>
     </div>
 
-    <div class="step slide" data-x="-971" data-y="-2401" data-rotate="-20">
-      Acceptance tests
+    <div class="step slide fill" data-x="2401" data-y="-971" data-rotate="65">
+      <h1>write spec testing</h1>
     </div>
 
-    <div class="step slide" data-x="-2384" data-y="-1010" data-rotate="-65">
-      Acceptance tests
+    <div class="step slide fill" data-x="1010" data-y="-2384" data-rotate="20">
+      <h1>run tests</h1>
     </div>
 
-    <div class="step slide" data-x="-2401" data-y="971" data-rotate="-110">
-      Acceptance tests
+    <div class="step slide fill" data-x="-971" data-y="-2401" data-rotate="-20">
+      <h1>write code</h1>
     </div>
 
-    <div class="step slide" data-x="-1010" data-y="2384" data-rotate="-155">
-      Acceptance tests
+    <div class="step slide fill" data-x="-2384" data-y="-1010" data-rotate="-65">
+      <h1>pass the test</h1>
+    </div>
+
+    <div class="step slide fill" data-x="-2401" data-y="971" data-rotate="-110">
+      <h1>refactor</h1>
+    </div>
+
+    <div class="step slide fill" data-x="-1010" data-y="2384" data-rotate="-155">
+      <h1>accept/reject</h1>
     </div>
 
     <!-- After Circle -->
@@ -172,98 +170,43 @@
     <div id="full-circle" class="step" data-x="0" data-y="0" data-scale="10">
     </div>
 
-    <div class="step slide" data-x="0" data-y="3443" data-rotate="-180">
-      Acceptance tests
+    <div id="demo" class="step" data-x="0" data-y="3443" data-rotate="-180">
+      <iframe src="http://narwhal.iamaust.in" height="600" width="1000"></iframe>
     </div>
 
-    <div class="step slide" data-x="0" data-y="4343" data-rotate="-180">
-      Acceptance tests
+    <div id="struggles" class="step slide" data-x="0" data-y="4343" data-rotate="-180">
+      <h1>struggles</h1>
     </div>
 
-    <div class="step slide" data-x="0" data-y="5243" data-rotate="-180">
-      Acceptance tests
+    <div id="advantages" class="step slide" data-x="0" data-y="5243" data-rotate="-180">
+      <h1>Advantages of bdd</h1>
     </div>
 
-    <div class="step slide" data-x="0" data-y="6143" data-rotate="-180">
-      Acceptance tests
+    <div id="results" class="step slide" data-x="0" data-y="6143" data-rotate="-180">
+      <h1>results</h1>
     </div>
 
-    <div class="step slide" data-x="0" data-y="7043" data-rotate="-180">
-      Acceptance tests
+    <div id="future-work" class="step slide" data-x="0" data-y="7043" data-rotate="-180">
+      <h1>future work</h1>
     </div>
 
-    <div class="step slide" data-x="0" data-y="7943" data-rotate="-180">
-      Acceptance tests
+    <div id="acknowledgements" class="step slide" data-x="0" data-y="7943" data-rotate="-180">
+      <h1>acknowledgements</h1>
     </div>
 
-    <div class="step slide" data-x="0" data-y="8843" data-rotate="-180">
-      Acceptance tests
+    <div id="biblography" class="step slide" data-x="0" data-y="8843" data-rotate="-180">
+      <h1>biblography</h1>
     </div>
-    <!--
-        This element introduces rotation.
 
-        Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
-        element should be rotated by 90 degrees clockwise.
-    -->
-    <!--
-        And now it gets really exiting! We move into third dimension!
-
-        Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
-        `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
-        positioned far away from us (by 3000px).
-    -->
-
-    <!--
-        And the last one shows full power and flexibility of impress.js.
-
-        You can not only position element in 3D, but also rotate it around any axis.
-        So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
-        10 degrees (clockwise) around Y axis.
-
-        You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
-        as `data-rotate` (these two are basically aliases).
-    -->
-
-    <!--
-        So to make a summary of all the possible attributes used to position presentation steps, we have:
-
-        * `data-x`, `data-y`, `data-z` -- they define the position of **the center** of step element on
-            the canvas in pixels; their default value is 0;
-        * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` -- they define the rotation of
-            the element around given axis in degrees; their default value is 0; `data-rotate` and `data-rotate-z`
-            are exactly the same;
-        * `data-scale` -- defines the scale of step element; default value is 1
-    -->
-    <div id="overview" class="step" data-x="0" data-y="0" data-scale="10">
+    <div id="overview" class="step" data-x="0" data-y="3000" data-scale="18">
     </div>
 
 </div>
 
-<!--
-    Hint is not related to impress.js in any way.
-
-    But it can show you how to use impress.js features in creative way.
-
-    When the presentation step is shown (selected) it's element get's the class of "active" and `#impress` root
-    element get's the class based on active step id `step-ID` (where ID is the step id)... It probably is not
-    so clear because of all these IDs in here, so for example when the first step (the one with id of `bored`)
-    is active, `#impress` element get a class of `step-bored`.
-
-    This class is used by this hint below. Check CSS file to see how it's shown with delayed CSS animation.
--->
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate</p>
 </div>
 
-
-<!--
-    Last, but not least.
-
-    To make all described above really work, you need to include impress.js in the page.
-    And you should do it in the end of your document. Not only because it's a good practice, but also
-    because I was lazy, haven't wrapped the code in any kind of "DOM ready" event, so it will not work
-    if included too early in the source ;)
--->
 <script src="js/impress.js"></script>
 
 </body>

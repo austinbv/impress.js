@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700,400italic|Gudea|Medula+One);
 /**
  * This is a stylesheet for a demo presentation for impress.js
  *
@@ -181,49 +182,137 @@ a:hover {
 
 /* impress.js title */
 
-#intro h1 {
-  padding: 0;
+.slide h1 {
   font-size: 120px;
-  color: #000;
+  line-height: 100px;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-#intro h2 {
-  font-size: 30px;
-  line-height: 25px;
-  text-align: justify;
-  width: 450px;
+.slide ul ul {
+  list-style: circle;
+  margin-left: 70px;
 }
 
 #title {
-    padding: 0;
+  text-align: center;
+  color: black;
+  line-height: 70px;
 }
 
-#title .try {
-    font-size: 64px;
-    position: absolute;
-    top: -0.5em;
-    left: 1.5em;
-
-    -webkit-transform: translateZ(20px);
-    -moz-transform:    translateZ(20px);
-    -ms-transform:     translateZ(20px);
-    -o-transform:      translateZ(20px);
-    transform:         translateZ(20px);
+#title h2 {
+  font-size: 40px;
+  width: 500px;
+  text-align: left;
 }
 
-#title h1 {
-    font-size: 190px;
-
-    -webkit-transform: translateZ(50px);
-    -moz-transform:    translateZ(50px);
-    -ms-transform:     translateZ(50px);
-    -o-transform:      translateZ(50px);
-    transform:         translateZ(50px);
+#software-development h3 {
+  text-align: center;
+  margin-top: 50px;
 }
 
-#title .footnote {
-    font-size: 32px;
+#agile img {
+  height: 55%;
+  width: 45%;
 }
+
+#agile ul {
+  position: absolute;
+  left: 500px;
+  top: 300px;
+  list-style: circle;
+}
+
+#tdd h1 {
+  font-size: 80px;
+}
+
+#tdd img {
+  height: 50%;
+  width: 50%;
+}
+
+#tdd ul {
+  list-style: circle;
+  position: absolute;
+  left: 500px;
+  top: 300px;
+}
+
+
+#bdd h1 {
+  font-family: 'Gudea', sans-serif;
+  margin-bottom: -120px;
+  margin-top: -200px;
+  letter-spacing: -70px;
+  font-size: 400px;
+}
+
+#narwhal {
+  width: 1000px;
+    -webkit-transform: translateZ(-10px);
+    -moz-transform:    translateZ(-10px);
+    -ms-transform:     translateZ(-10px);
+    -o-transform:      translateZ(-10px);
+    transform:         translateZ(-10px);
+}
+
+#narwhal h1 {
+  font-family: 'Arvo', serif;
+  font-weight: bold;
+  letter-spacing: -30px;
+  font-size: 200px;
+  margin-bottom: -70px;
+}
+
+#narwhal ul {
+  display: inline-block;
+  width: 270px;
+
+}
+
+#narwhal li {
+  line-height: 40px;
+}
+
+#technology {
+  height: 800px;
+  width: 900px;
+}
+
+#technology svg {
+  height: 300px;
+  -moz-transform: rotate(-30deg);
+  -webkit-transform: rotate(-30deg);
+  right: 300px;
+  position: absolute;
+  top: 400px;
+}
+
+#technology #pusher {
+  height: 30%;
+  width: 50%;
+  position: absolute;
+  left: 500px;
+  top: 200px;
+  -moz-transform: rotate(30deg);
+  -webkit-transform: rotate(30deg);
+}
+
+#technology #raphael {
+  position: absolute;
+  bottom: 100px;
+  right: 500px;
+}
+
+#technology #jquery {
+  position: absolute;
+  bottom: 200px;
+  left: 500px;
+  height: 15%;
+  width: 50%;
+}
+
 .center {
   text-align: center;
 }
@@ -462,7 +551,6 @@ a:hover {
     text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
 
     font-size: 30px;
-    line-height: 36px;
 
     letter-spacing: -1px;
 }

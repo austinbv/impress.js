@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Dorsa|Arvo:400,700,400italic|Gudea|Medula+One|Convergence|Handlee|Fredericka+the+Great|Lustia|Homenaje|Nova+Mono|Esteban);
+@import url(http://fonts.googleapis.com/css?family=Dorsa|Arvo:400,700,400italic|Gudea|Medula+One|Convergence|Handlee|Fredericka+the+Great|Lustia|Homenaje|Nova+Mono|Esteban|Allerta+Stencil);
 /**
  * This is a stylesheet for a demo presentation for impress.js
  *
@@ -615,9 +615,10 @@ pre code {
   box-shadow: inset 0 0 0 10px #c23456;
 }
 
-#communication p {
-  font-size: 90px;
+.outside {
+  font-family: 'Allerta Stencil', sans-serif;
   text-align: center;
+  font-size: 90px;
 }
 
 #demo {
@@ -632,6 +633,9 @@ pre code {
     z-index: -1;
     padding: 0;
 }
+
+/* Generated */
+
 
 /* on overview step everything is visible */
 

@@ -9,6 +9,9 @@
     <meta name="description" content="Using impress.js to give a presentation on Behavior Driven Development">
     <meta name="author" content="Austin Vance" />
 
+    <script src="http://yandex.st/highlightjs/6.1/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/6.1/styles/sunburst.min.css">
     <link href="css/style.css" rel="stylesheet" />
 </head>
 <body>
@@ -122,21 +125,23 @@
     </div>
 
     <!-- Circle -->
-    <div id="discuss" class="step fill" data-x="971" data-y="2401" data-rotate="155">
+    <div id="discuss" class="step" data-x="971" data-y="2401" data-rotate="155"data-rotate-x="90">
       <h1>Discussion</h1>
-      <div id="talk-bubble">
+      <div id="talk-bubble" class="first">
         <p>People want an easy way<br>to join presentations</p>
+        <br>
+        <p>And User names should<br>show first and last name</p>
       </div>
     </div>
 
-    <div id="story" class="step fill" data-x="971" data-y="2401" data-rotate="155" data-rotate-x="90">
+    <div id="story" class="step fill" data-x="971" data-y="2401" data-rotate="155">
       <h1><span id="large">S</span><span id="other">tory<span></h1>
       <div>
         <p>As a <span class="actor">User</span>,<br>I'd like to<br><span class="action">See</span> all available <span id="what">Presentations</span></p>
       </div>
     </div>
 
-    <div id="acceptance" class="step fill" data-x="2384" data-y="1010" data-rotate="110">
+    <div id="acceptance" class="step" data-x="2384" data-y="1010" data-rotate="110" data-rotate-x="90">
       <h1>Acceptance Tests</h1>
       <h2>Be Specific</h2>
       <ul>
@@ -146,46 +151,135 @@
           <p><span class="blue">Then</span> I should be taken<br>to a projects index</p>
         </li>
         <li class="small-box">
-          <p><span class="blue">Given</span> I am logged in</p>
-          <p><span class="blue">And</span> I have a presentation I created</p>
-          <p><span class="blue">When</span> I am on my profile page</p>
-          <p><span class="blue">Then</span> I should see a thumb of the project</p>
+          <p><span class="blue">Given</span> A user with a first and last name</p>
+          <p><span class="blue">When</span> the name is requested</p>
+          <p><span class="blue">Then</span> The First than Last name should be shown</p>
         </li>
       </ul>
     </div>
 
-    <div id="start" class="step fill" data-x="2384" data-y="1010" data-rotate="110" data-rotate-x="90">
+    <div id="start" class="step fill" data-x="2384" data-y="1010" data-rotate="110">
       <div id="start-button">
         Start
       </div>
     </div>
 
-    <div class="step slide fill" data-x="2401" data-y="-971" data-rotate="65">
-      <h1>write spec testing</h1>
+    <div id="integration" class="step fill" data-x="2401" data-y="-971" data-rotate="65">
+      <h1>Integration Testing</h1>
+      <h2>Capybara</h2>
+      <pre>
+      <code class="ruby">
+          let(:user) { Factory(:user, :password =&gt; 'pass123') }
+          describe "finding the profile" do
+            context "when already logged in" do
+              it "should take you to the profile when clicking the logo" do
+                page.visit sign_in_path
+                page.fill_in "username", :with =&gt; user.username
+                page.fill_in "password", :with =&gt; 'pass123'
+                page.visit root_path
+                page.click "logo"
+                page.current_path.should == user_path(user)
+              end
+            end
+          end
+        </code>
+      </pre>
+    </div>
+    <div id="unit" class="step" data-x="2401" data-y="-971" data-rotate="65" data-rotate-x="90">
+      <h1>Unit Testing</h1>
+      <h2>Rspec</h2>
+      <pre>
+        <code class="ruby">
+          let(:user) { Factory(:user, :first =&gt; 'Austin', :last =&gt; 'Vance') }
+          describe "User" do
+            context "#name" do
+              it "should return Austin Vance" do
+                user.name.should == "Austin Vance"
+              end
+            end
+          end
+        </code>
+      </pre>
     </div>
 
-    <div class="step slide fill" data-x="1010" data-y="-2384" data-rotate="20">
-      <h1>run tests</h1>
+    <div id="fail" class="step fill" data-x="1010" data-y="-2384" data-rotate="20">
+      <h2><span>fail</span> the tests</h2>
+      <img id="failing-tests" alt="Failing Tests" src="images/failing-tests.png">
     </div>
 
-    <div class="step slide fill" data-x="-971" data-y="-2401" data-rotate="-20">
-      <h1>write code</h1>
+    <div id="code" class="step fill" data-x="-971" data-y="-2401" data-rotate="-20">
+      <h1>
+        code
+        <small>write as little as possible</small>
+      </h1>
+      <pre>
+        <code class="ruby">
+          class User
+              # ...
+              def name
+                first_name = self.first_name
+                last_name = self.last_name
+                first_name + " " + last_name
+              end
+              # ...
+          end
+        </code>
+      </pre>
     </div>
 
-    <div class="step slide fill" data-x="-2384" data-y="-1010" data-rotate="-65">
-      <h1>pass the test</h1>
+    <div id="pass" class="step fill" data-x="-2384" data-y="-1010" data-rotate="-65">
+      <h1><span>pass</span> the test</h1>
+      <img id="passing-tests" alt="Passing Tests" src="images/passing-tests.png">
     </div>
 
-    <div class="step slide fill" data-x="-2401" data-y="971" data-rotate="-110">
+    <div id="refactor" class="step" data-x="-2401" data-y="971" data-rotate="-110" data-rotate-x="90">
       <h1>refactor</h1>
+      <pre>
+        <code class="ruby">
+          class User
+            # ...
+            def name
+              "#{self.first_name} #{self.last_name}"
+            end
+            # ...
+          end
+        </code>
+      </pre>
     </div>
 
-    <div class="step slide fill" data-x="-1010" data-y="2384" data-rotate="-155">
-      <h1>accept/reject</h1>
+    <div id="finish" class="step" data-x="-2401" data-y="971" data-rotate="-110" data-rotate-x="90" data-rotate-y="90">
+      <div id="finish-button">
+        Finish
+      </div>
     </div>
 
+    <div id="deliver" class="step fill" data-x="-2401" data-y="971" data-rotate="-110">
+      <div id="deliver-button">
+        Deliver
+      </div>
+    </div>
+
+    <div id="accept" class="step fill" data-x="-1010" data-y="2384" data-rotate="-155">
+      <div id="accept-button">
+        Accept
+      </div>
+    </div>
+
+    <div id="reject" class="step" data-x="-1010" data-y="2384" data-rotate="-155" data-rotate-x="90">
+      <div id="reject-button">
+        Reject
+      </div>
+      <ul>
+        <li>Talk about why the feature was rejected</li>
+        <li>Modify any parts of the existing story</li>
+        <li>Start the cycle over again</li>
+      </ul>
+    </div>
     <!-- After Circle -->
 
+    <div id="communication" class="step skip fill" data-rotate="130" data-x="2420" data-y="2500" data-scale="4">
+      <p>Communication</p>
+    </div>
     <div id="full-circle" class="step" data-x="0" data-y="0" data-scale="10">
     </div>
 
@@ -216,16 +310,11 @@
     <div id="biblography" class="step slide" data-x="0" data-y="8843" data-rotate="-180">
       <h1>biblography</h1>
     </div>
-
-    <div id="overview" class="step" data-x="0" data-y="3000" data-scale="18">
-    </div>
-
 </div>
 
 <div class="hint">
     <p>Use a spacebar or arrow keys to navigate</p>
 </div>
-
 <script src="js/impress.js"></script>
 
 </body>

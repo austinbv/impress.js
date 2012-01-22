@@ -337,4 +337,3 @@
     select(getElementFromUrl() || steps[0]);
 
 })(document, window);
-

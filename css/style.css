@@ -621,6 +621,22 @@ pre code {
   font-size: 90px;
 }
 
+#communication {
+  color: #78a6e1;
+}
+
+#testing {
+  color: #65b042;
+}
+
+#development {
+  color: #2aa1a2;
+}
+
+#review {
+  color: #c23621;
+}
+
 #demo {
   width: 1000px;
   padding: 0;
@@ -633,8 +649,6 @@ pre code {
     z-index: -1;
     padding: 0;
 }
-
-/* Generated */
 
 
 /* on overview step everything is visible */
